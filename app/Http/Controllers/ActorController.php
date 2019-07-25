@@ -20,11 +20,11 @@ class ActorController extends Controller
       return view('actor', compact('actor'));
     }
 
-    // public function search($_GET['search']){
-    //   $actorsSearch = Actors::where('first_name', '=', $search)
-    //   ->orderBy('name')
-    //   ->get();
-    //
-    //   return view('actores', compact('actorsSearch'));
-    // }
+    public function search(){
+      $actorsSearch = Actors::where('first_name', '=', $_GET['search'])
+      ->orderBy('first_name')
+      ->get();
+
+      return view('actores', compact('actorsSearch'));
+    }
 }
