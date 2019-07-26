@@ -9,7 +9,7 @@ use App\Actors;
 class ActorController extends Controller
 {
     public function directory(){
-      $actors = Actors::all();
+      $actors = Actors::paginate(10);
 
       return view('actores', compact('actors'));
     }
@@ -21,10 +21,11 @@ class ActorController extends Controller
     }
 
     public function search(){
-      $actorsSearch = Actors::where('first_name', '=', $_GET['search'])
-      ->orderBy('first_name')
-      ->get();
+      $actors = Actors::where('first_name', '=', $_GET['search'])
+      ->orWhere('last_name', '=', $_GET['search'])
+      ->orderBy('last_name')
+      ->paginate(3);
 
-      return view('actores', compact('actorsSearch'));
+      return view('actores', compact('actors'));
     }
 }

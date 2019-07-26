@@ -15,5 +15,9 @@
         <li><a href="/actor/{{$oneActor['id']}}">{{ $oneActor->getNombreCompleto()}}</li></a>
       @endforeach
     </ul>
+    {{ $actors->links() }}
+    @if (isset($_GET['search']))
+      <a href="/actores"><button type="button" name="Limpiar">Limpiar</button></a>
+    @endif
   </body>
 </html>
