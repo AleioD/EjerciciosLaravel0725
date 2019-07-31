@@ -20,3 +20,7 @@ Route::get('/actores', 'ActorController@directory');
 Route::get('/actor/{id}', 'ActorController@show');
 
 Route::get('/actores/buscar', 'ActorController@search');
+
+Route::get('/actores/add', 'ActorController@add');
+
+Route::post('/actores/add', 'ActorController@store');
