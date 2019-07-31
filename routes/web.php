@@ -24,3 +24,7 @@ Route::get('/actores/buscar', 'ActorController@search');
 Route::get('/actores/add', 'ActorController@add');
 
 Route::post('/actores/add', 'ActorController@store');
+
+Route::get('/actores/{id}/edit', 'ActorController@edit');
+
+Route::post('/actores/{id}/edit', 'ActorController@store');

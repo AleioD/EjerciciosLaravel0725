@@ -31,12 +31,12 @@ class ActorController extends Controller
     }
 
     public function add(){
-      $movies = Movies::all();
+      $movies = Movies::orderBy('title')->get();
 
       return view('add', compact('movies'));
     }
 
-    public function store(Request $req){
+    public function store(Request $request){
       // Validamos
   		$request->validate([
   			'first_name' => 'required | string',
@@ -54,7 +54,7 @@ class ActorController extends Controller
         'favorite_movie_id.required' => 'Debes escojer una película',
   		]);
 
-      Movie::create([
+      Actors::create([
   			'first_name' => $request['first_name'],
   			'last_name' => $request['last_name'],
         'rating' => $request['rating'],
@@ -62,5 +62,11 @@ class ActorController extends Controller
   		]);
 
       return redirect('/actores');
+    }
+
+    public function edit($id){
+      $movies = Movies::orderBy('title')->get();
+      $actor = Actors::find($id);
+      return view('actores-edit', compact('movies', 'actor'));
     }
 }

@@ -18,28 +18,31 @@
         <div class="col-6">
           <div class="form-group">
             <label for="">Nombre:</label>
-            <input type="text" name="first_name" class="form-control" value="{{ old ('first_name') }}">
+            <input type="text" name="first_name" class="form-control" value="{{ $actor->first_name }}">
           </div>
         </div>
         <div class="col-6">
           <div class="form-group">
             <label for="">Apellido:</label>
-            <input type="text" name="last_name" class="form-control" value="{{ old ('last_name') }}">
+            <input type="text" name="last_name" class="form-control" value="{{ $actor->last_name }}">
           </div>
         </div>
         <div class="col-6">
           <div class="form-group">
             <label for="">Rating:</label>
-            <input type="text" name="rating" class="form-control" value="{{ old ('rating') }}">
+            <input type="text" name="rating" class="form-control" value="{{ $actor->rating }}">
           </div>
         </div>
         <div class="col-6">
           <div class="form-group">
             <label for="">Película favorita:</label>
             <select class="form-control" name="favorite_movie_id">
-            <option value="">Elegí una película</option>
             @foreach ($movies as $movie)
-              <option value="{{ $movie->id }}"> {{ $movie->title }}</option>
+              <option value="{{ $movie->id }}"
+                @if ($movie->id == $actor->favorite_movie_id)
+                  selected
+                @endif
+                >{{ $movie->title }}</option>
             @endforeach
           </select>
           </div>
