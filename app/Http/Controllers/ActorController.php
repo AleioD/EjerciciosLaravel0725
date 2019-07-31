@@ -25,7 +25,7 @@ class ActorController extends Controller
       $actors = Actors::where('first_name', '=', $_GET['search'])
       ->orWhere('last_name', '=', $_GET['search'])
       ->orderBy('last_name')
-      ->paginate(3);
+      ->paginate(2);
 
       return view('actores', compact('actors'));
     }
