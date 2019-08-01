@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Actors;
 use App\Movies;
+use Auth;
 
 class ActorController extends Controller
 {
@@ -32,6 +33,11 @@ class ActorController extends Controller
     }
 
     public function add(){
+
+      if (Auth::user() == null) {
+        return redirect('actores');
+      }
+
       $movies = Movies::orderBy('title')->get();
 
       return view('add', compact('movies'));
@@ -66,12 +72,21 @@ class ActorController extends Controller
     }
 
     public function edit($id){
+
+      if (Auth::user() == null) {
+        return redirect('actores');
+      }
+
       $movies = Movies::orderBy('title')->get();
       $actor = Actors::find($id);
       return view('actores-edit', compact('movies', 'actor'));
     }
 
     public function update(Request $request){
+
+      if (Auth::user() == null) {
+        return redirect('actores');
+      }
 
       $actor = Actors::find($request['id']);
 
@@ -106,6 +121,11 @@ class ActorController extends Controller
 
     public function destroy(Request $request){
       $actor = Actors::find($request['id']);
+
+      if (Auth::user() == null) {
+        return redirect('actores');
+      }
+
 
       $actor->delete();
 
