@@ -27,4 +27,6 @@ Route::post('/actores/add', 'ActorController@store');
 
 Route::get('/actores/{id}/edit', 'ActorController@edit');
 
-Route::post('/actores/{id}/edit', 'ActorController@store');
+Route::put('/actores/{id}', 'ActorController@update');
+
+Route::post('actor/{id}', 'ActorController@destroy');

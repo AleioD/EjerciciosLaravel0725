@@ -12,8 +12,10 @@
 			@endforeach
 		@endif
     <div class="container" style="margin-top:30px; margin-bottom: 30px;">
-    <form class="" action="/actores/add" method="post">
+    <form class="" action="/actores/{id}" method="post">
       @csrf
+      <input type="hidden" name="_method" value="PUT">
+      <input type="hidden" name="id" value="{{$actor->id}}">
       <div class="row">
         <div class="col-6">
           <div class="form-group">
