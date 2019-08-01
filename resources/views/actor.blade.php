@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Detalle actor</title>
-  </head>
-  <body>
+@extends('plantilla')
+
+@section('body')
+
     Nombre Completo: {{ $actor->getNombreCompleto()}} <br>
     Película favorita: {{ $favMovie->title}} <br>
     Rating: {{ $actor->rating }} <br>
@@ -14,5 +11,5 @@
       <button type="submit" class="btn btn-success">Borrar registro</button>
 
     </form>
-  </body>
-</html>
+
+@endsection

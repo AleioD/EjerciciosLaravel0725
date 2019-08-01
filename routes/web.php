@@ -30,3 +30,7 @@ Route::get('/actores/{id}/edit', 'ActorController@edit');
 Route::put('/actores/{id}', 'ActorController@update');
 
 Route::post('actor/{id}', 'ActorController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

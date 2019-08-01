@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Agregar un actor</title>
-    <link rel="stylesheet" href="/css/app.css">
-  </head>
-  <body>
+@extends('plantilla')
+
+@section('body')
+
     @if ($errors)
 			@foreach ($errors->all() as $error)
 				<p style="color: red;">{{ $error }}</p>
@@ -53,5 +49,5 @@
       </div>
     </form>
   </div>
-  </body>
-</html>
+
+@endsection
